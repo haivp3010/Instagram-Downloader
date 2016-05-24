@@ -73,22 +73,22 @@ function setBtnStyle() {
   $('.btnDownload').css('margin-right', '10px');
 }
 
-function getImgLink(element) {
-  var src = element.find("img").prop("src");
-  var x = 0;
-  var last = 0;
-  var middle = 0;
-  for (var i = 0; i < src.length; i++) {
-    if (src[i] == "/") {
-      x++;
-      last = i;
-      if (x == 4) middle = i;
-    }
-  }
-  var path = src.substring(0, middle);
-  var filename = src.substring(last, src.indexOf("?"));
-  return (path + filename);
-}
+// function getImgLink(element) {
+//   var src = element.find("img").prop("src");
+//   var x = 0;
+//   var last = 0;
+//   var middle = 0;
+//   for (var i = 0; i < src.length; i++) {
+//     if (src[i] == "/") {
+//       x++;
+//       last = i;
+//       if (x == 4) middle = i;
+//     }
+//   }
+//   var path = src.substring(0, middle);
+//   var filename = src.substring(last, src.indexOf("?"));
+//   return (path + filename);
+// }
 
 function setUpObserver(elementSelector) {
   // Observer

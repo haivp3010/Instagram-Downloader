@@ -15,13 +15,12 @@
   "permissions": [
     "https://www.instagram.com/*",
     "declarativeContent",
-    "activeTab",
-    "webNavigation"
+    "activeTab"
   ],
   "content_scripts": [
     {
       "matches": ["https://www.instagram.com/*"],
-      "js": ["jquery-2.2.4.min.js", "demo.js"],
+      "js": ["jquery-2.2.4.min.js", "content.js", "onClickDl.js"],
       "run_at" : "document_end"
     }
   ],

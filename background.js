@@ -28,6 +28,6 @@ chrome.runtime.onMessage.addListener(
       sendResponse(sender.tab.url);
     }
     if (request == "Rerun script") {
-      chrome.tabs.executeScript({file: "repopulate.js"});
+      chrome.tabs.executeScript({file: "content.js"});
     }
   });
