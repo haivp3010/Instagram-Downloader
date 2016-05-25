@@ -12,7 +12,7 @@ chrome.runtime.onInstalled.addListener(function() {
         // That fires when a page's URL contains a 'g' ...
         conditions: [
           new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { hostEquals: 'www.instagram.com', schemes: ['https'] },
+            pageUrl: { hostContains: 'www.instagram.com', schemes: ['https'] },
           })
         ],
         // And shows the extension's page action.
@@ -21,13 +21,3 @@ chrome.runtime.onInstalled.addListener(function() {
     ]);
   });
 });
-
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    if (request == "getUrl") {
-      sendResponse(sender.tab.url);
-    }
-    if (request == "Rerun script") {
-      chrome.tabs.executeScript({file: "content.js"});
-    }
-  });
