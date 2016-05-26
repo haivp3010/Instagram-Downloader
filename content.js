@@ -6,7 +6,7 @@ $(document).on('click', '.btnDownload', function(event) {
   var dl = document.createElement('a');
   dl.href = getImgLink($(this).parent().parent().prev());
   dl.download = "";
-  dl.trigger('click');
+  dl.click();
 });
 
 $(document).on('mouseenter', '._sppa1', function() {
@@ -18,7 +18,7 @@ $(document).on('click', '.btnDownloadHover', function(event) {
   var dl = document.createElement('a');
   dl.download = "";
   
-  if ($(this).parent().parent().find('_1lp5e')) {
+  if ($(this).parent().parent().find('_1lp5e').length) {
     var count = 0;
     var loop = setInterval(function() {
       dl.href = $(document).find('video').prop('src');
@@ -54,7 +54,7 @@ $(document).ready(function() {
 });
 
 function addDownloadBtn() { 
-  $('._jveic:not(".downloadable")').prepend('<a href="javascript:void(0);" class="btnDownload" style="background-image: url(' + download_black + '); background-size: contain; width: 30px; height: 30px; margin-right: 10px;"></a>');
+  $('._jveic:not(".downloadable")').prepend('<a href="javascript:void(0);" class="btnDownload" style="background-image: url(' + download_black + '); background-size: contain; width: 25px; height: 25px; margin-right: 10px;"></a>');
   $('._jveic').addClass('downloadable');
 }
 
