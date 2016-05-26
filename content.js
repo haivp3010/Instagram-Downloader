@@ -18,7 +18,7 @@ $(document).on('click', '.btnDownloadHover', function(event) {
   var dl = document.createElement('a');
   dl.download = "";
   
-  if ($(this).parent().parent().find('_1lp5e').length) {
+  if ($(this).parent().parent().find('._1lp5e').length) {
     var count = 0;
     var loop = setInterval(function() {
       dl.href = $(document).find('video').prop('src');
