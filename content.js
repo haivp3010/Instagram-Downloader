@@ -2,30 +2,42 @@
 var download_black = chrome.extension.getURL("download_black.png");
 var download_white = chrome.extension.getURL("download_white.png");
 
-$(document).on('click', '.btnDownload', function(event) {
+$('body').on('click', '.btnDownload', function(event) {
   var dl = document.createElement('a');
   dl.href = getImgLink($(this).parent().parent().prev());
   dl.download = "";
   dl.click();
 });
 
-$(document).on('mouseenter', '._sppa1', function() {
+$('body').on('mouseenter', '._sppa1', function() {
   if (!$(this).find('.btnDownloadHover').length)
     $(this).append('<a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: 5px auto;"></a>');
 });
 
-$(document).on('click', '.btnDownloadHover', function(event) {
+$('body').on('click', 'a', function(event) {
+  if ($(event.target).is('.btnDownloadHover') && !$(event.target).parent().parent().find('._1lp5e').length) {
+      event.preventDefault();
+  }
+});
+
+$('body').on('click', '.btnDownloadHover', function(event) {
+  $('<style>body { overflow: visible !important; }</style>').appendTo('head');
   var dl = document.createElement('a');
-  dl.download = "";
+  dl.download = "";  
   
   if ($(this).parent().parent().find('._1lp5e').length) {
+    $('body').css('overflow', 'visible');
+    $('<style>._a1rcs._ea084 { display: none; }</style>').appendTo('head');
     var count = 0;
     var loop = setInterval(function() {
       dl.href = $(document).find('video').prop('src');
       count++;
-      if (dl.href != "") {
+      if (dl.href.indexOf('undefined') == -1) {
         clearInterval(loop);
         dl.click();
+        history.back();
+        $('style:last-child').remove();
+        $('style:last-child').remove();
       } else if (count == 20) {
         // If it is taking too long to load the page, simple break
         clearInterval(loop);
@@ -34,19 +46,12 @@ $(document).on('click', '.btnDownloadHover', function(event) {
   } else {
     dl.href = getImgLink($(this).parent().parent());
     dl.click();
+    $('style:last-child').remove();
   }
 });
 
-$(document).on('change mouseover scroll', function(event) {
+$('body').on('change mouseover scroll', function(event) {
   addDownloadBtn();
-});
-
-$(document).on('click', '._sppa1', function() {
-  $(document).ajaxComplete(function() {
-    console.log("click");
-    $(document).off("ajaxComplete");
-  });
-  
 });
 
 $(document).ready(function() {
