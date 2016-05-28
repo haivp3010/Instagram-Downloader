@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Margatsni - Instagram Downloader",
   "description": "Easily download high quality photos and videos from Instagram. Everything is just a click away.",
-  "version": "1.0",
+  "version": "1.1",
   "background": {
     "scripts": ["background.js"],
     "persistent": false,
@@ -30,5 +30,6 @@
       "run_at" : "document_end"
     }
   ],
+  "short_name" : "Margatsni",
   "web_accessible_resources": ["download_black.png", "download_white.png"]
 }
