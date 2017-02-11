@@ -10,15 +10,15 @@ $('body').on('click', '.btnDownload', function(event) {
 });
 
 $('body').on('mouseenter', '._22yr2', function() {
-  if (this.classList.length > 1)
+  if (this.classList.length > 1 && !$(this).hasClass('_s3j6d'))
     return;
   if (!$(this).find('.btnDownloadHover').length)
-    $(this).append('<div class="download-container" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, 0.3)"><a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: auto;"></a></div>');
+    $(this).append('<div class="download-container" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, 0.3)"><a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: auto; cursor: pointer;"></a></div>');
   $(this).find('.download-container').show();
 });
 
 $('body').on('mouseleave', '._22yr2', function() {
-  if (this.classList.length > 1)
+  if (this.classList.length > 1 && !$(this).hasClass('_s3j6d'))
     return;
   $(this).find('.download-container').hide();
 });
@@ -69,7 +69,7 @@ $(document).ready(function() {
 });
 
 function addDownloadBtn() { 
-  $('._jveic:not(".downloadable")').prepend('<a href="javascript:void(0);" class="btnDownload" style="background-image: url(' + download_black + '); background-size: contain; width: 25px; height: 25px; margin-right: 10px;"></a>');
+  $('._jveic:not(:has(>.btnDownload))').prepend('<a href="javascript:void(0);" class="btnDownload" style="background-image: url(' + download_black + '); background-repeat: no-repeat; background-size: contain; width: 25px; height: 25px; margin-right: 10px;"></a>');
   $('._jveic').addClass('downloadable');
 }
 
