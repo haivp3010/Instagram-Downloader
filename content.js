@@ -9,9 +9,14 @@ $('body').on('click', '.btnDownload', function(event) {
   dl.click();
 });
 
-$('body').on('mouseenter', '._sppa1', function() {
+$('body').on('mouseenter', '._22yr2', function() {
   if (!$(this).find('.btnDownloadHover').length)
-    $(this).append('<a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: 5px auto;"></a>');
+    $(this).append('<div class="download-container" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, 0.3)"><a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: auto;"></a></div>');
+  $(this).find('.download-container').show();
+});
+
+$('body').on('mouseleave', '._22yr2', function() {
+  $(this).find('.download-container').hide();
 });
 
 $('body').on('click', 'a', function(event) {
@@ -25,12 +30,13 @@ $('body').on('click', '.btnDownloadHover', function(event) {
   var dl = document.createElement('a');
   dl.download = "";  
   
-  if ($(this).parent().parent().find('._1lp5e').length) {
+  if ($(this).parent().parent().parent().find('._1lp5e').length) {
     $('body').css('overflow', 'visible');
     $('<style>._a1rcs._ea084 { display: none; }</style>').appendTo('head');
+    $(this).parent().parent().parent()[0].click();
     var count = 0;
     var loop = setInterval(function() {
-      dl.href = $(document).find('video').prop('src');
+      dl.href = $(document).find('video').prop('currentSrc');
       count++;
       if (dl.href.indexOf('undefined') == -1) {
         clearInterval(loop);
@@ -44,7 +50,7 @@ $('body').on('click', '.btnDownloadHover', function(event) {
       }
     }, 1000);
   } else {
-    dl.href = getImgLink($(this).parent().parent());
+    dl.href = getImgLink($(this).parent().parent().parent());
     dl.click();
     $('style:last-child').remove();
   }
@@ -65,7 +71,7 @@ function addDownloadBtn() {
 
 function getImgLink(element) {
   if (element.find("video").length) {
-    return element.find("video").prop("src");
+    return element.find("video").prop("currentSrc");
   } else {
     var src = element.find("img").prop("src");
     var x = 0;
@@ -79,7 +85,7 @@ function getImgLink(element) {
       }
     }
     var path = src.substring(0, middle);
-    var filename = src.substring(last, src.indexOf("?"));
+    var filename = src.substring(last);
     return (path + filename);
   }
 }
