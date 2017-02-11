@@ -10,12 +10,16 @@ $('body').on('click', '.btnDownload', function(event) {
 });
 
 $('body').on('mouseenter', '._22yr2', function() {
+  if (this.classList.length > 1)
+    return;
   if (!$(this).find('.btnDownloadHover').length)
     $(this).append('<div class="download-container" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, 0.3)"><a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: auto;"></a></div>');
   $(this).find('.download-container').show();
 });
 
 $('body').on('mouseleave', '._22yr2', function() {
+  if (this.classList.length > 1)
+    return;
   $(this).find('.download-container').hide();
 });
 
