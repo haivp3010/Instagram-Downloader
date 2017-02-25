@@ -80,7 +80,7 @@ if (navigator.appVersion.indexOf("Mac") != -1) {
                 }
             }
             var path = src.substring(0, middle);
-            var filename = src.substring(last, src.indexOf("?"));
+            var filename = src.substring(last);
             return (path + filename);
         }
     }
