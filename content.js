@@ -71,8 +71,7 @@ $(document).ready(function() {
 });
     
 function addDownloadBtn() {
-	$('._jveic:not(:has(>.btnDownload))').prepend('<a href="javascript:void(0);" class="btnDownload" style="background-image: url(' + download_black + '); background-repeat: no-repeat; background-size: contain; width: 25px; height: 25px; margin-right: 10px;"></a>');
-	$('._jveic').addClass('downloadable');
+	$('._ghat4._knho6:not(:has(>.btnDownload))').append('<a class="btnDownload _7gupx _hd0kr" role="button"><span class="_soakw" style="background-image: url(' + download_black + '); background-repeat: no-repeat; background-size: contain; width: 24px; height: 24px;"></span></a>');
 }
     
 function getImgLink(element) {
