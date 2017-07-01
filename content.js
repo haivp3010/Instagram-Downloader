@@ -37,24 +37,13 @@ $('body').on('click', '.btnDownloadHover', function(event) {
   var dl = document.createElement('a');
   dl.download = "";
 
-  if ($(this).parent().parent().find('._1lp5e').length) {
-    $('body').css('overflow', 'visible');
-    $('<style>._a1rcs._ea084 { display: none; }</style>').appendTo('head');
-    var count = 0;
-    var loop = setInterval(function() {
-      dl.href = $(document).find('video').prop('src');
-      count++;
-      if (dl.href.indexOf('undefined') == -1) {
-        clearInterval(loop);
-        dl.click();
-        history.back();
-        $('style:last-child').remove();
-        $('style:last-child').remove();
-      } else if (count == 20) {
-                // If it is taking too long to load the page, simply break
-                clearInterval(loop);
-              }
-            }, 1000);
+  if ($(this).parent().parent().find('._qihym').length) {
+    $.get($(this).parent().closest('a')[0].href, function(response) {
+      var doc = document.implementation.createHTMLDocument('New document');
+      doc.documentElement.innerHTML = response;
+      dl.href = doc.head.querySelector("[property='og:video']").content;
+      dl && dl.click();
+    });
   } else {
     dl.href = getImgLink($(this).parent().parent());
     dl.click();
