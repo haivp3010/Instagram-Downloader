@@ -5,8 +5,7 @@ var download_white = chrome.extension.getURL("download_white.png");
 var batchDownloading = false;
 
 function addDownloadBtn() {
-  $('._jveic:not(:has(>.btnDownload))').prepend('<a href="javascript:void(0);" class="btnDownload" style="background-image: url(' + download_black + '); background-repeat: no-repeat; background-size: contain; width: 24px; height: 24px; margin-right: 10px;"></a>');
-  $('._ghat4._68sx3:not(:has(>.btnDownload))').append('<a class="btnDownload _7gupx _hd0kr" role="button"><span class="_soakw" style="background-image: url(' + download_black + '); background-repeat: no-repeat; background-size: contain; width: 24px; height: 24px;"></span></a>');
+  $('._ghat4._68sx3:not(:has(>.btnDownload))').append('<a class="btnDownload" role="button"><span class="_soakw" style="background-image: url(' + download_black + '); background-repeat: no-repeat; background-position: center; width: 24px; height: 24px; display: inline-block; background-color: transparent; border: none; cursor: pointer; padding: 8px;"></span></a>');
 }
 
 function getImgLink(element) {
@@ -87,7 +86,7 @@ function downloadPhotosFromSharedData(sharedData, saveFileName) {
   progressBar.style.verticalAlign = 'middle';
   progressBar.style.lineHeight = '30px';
   progressBar.style.zIndex = '999999';
-  
+
   var progressText = document.createElement('span');
   progressText.innerHTML = 'Downloading...';
   progressText.style.color = 'white';
