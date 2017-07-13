@@ -118,30 +118,10 @@ function downloadPhotosFromSharedData(sharedData, saveFileName) {
 }
 
 $('body').on('click', '.btnDownload', function(event) {
-  if ($(this).closest('article').find('._eusuj').length) { // multiple photos
-    if (batchDownloading) {
-      alert("Please wait for the current batch download to finish.");
-      return;
-    }
-    else
-      batchDownloading = true;
-
-    var parent = $(this.closest('._rgrbt'));
-    var itemLink = parent.find('._5l4x8')[0].href;
-
-    $.get(itemLink, function(response) {
-      var doc = document.implementation.createHTMLDocument('New document');
-      doc.documentElement.innerHTML = response;
-      var command = doc.body.getElementsByTagName('script')[0].innerHTML;
-      var sharedData = JSON.parse(command.substring(command.indexOf('=') + 1, command.length - 1));
-      downloadPhotosFromSharedData(sharedData, getZipFileName(itemLink));
-    });
-  } else {
-    var dl = document.createElement('a');
-    dl.href = getImgLink($(this).parent().parent().prev());
-    dl.download = "";
-    dl.click();
-  }
+  var dl = document.createElement('a');
+  dl.href = getImgLink($(this).parent().parent().prev());
+  dl.download = "";
+  dl.click();
 });
 
 $('body').on('mouseenter', '._22yr2._s3j6d', function() {
