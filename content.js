@@ -181,7 +181,6 @@ $('body').on('click', '.btnDownloadHover', function(event) {
     } else {
       dl.href = getImgLink(parent);
       dl.click();
-      $('style:last-child').remove();
     }
   }
 });
