@@ -5,7 +5,7 @@ var download_white = chrome.extension.getURL("download_white.png");
 var batchDownloading = false;
 
 function addDownloadBtn() {
-  $('._ghat4._68sx3:not(:has(>.btnDownload))').append('<a class="btnDownload" role="button"><span class="_soakw" style="background-image: url(' + download_black + '); background-repeat: no-repeat; background-position: center; width: 24px; height: 24px; display: inline-block; background-color: transparent; border: none; cursor: pointer; padding: 8px;"></span></a>');
+  $('._hmd6j._8oo9w:not(:has(>.btnDownload))').append('<a class="btnDownload" role="button"><span class="_soakw" style="background-image: url(' + download_black + '); background-repeat: no-repeat; background-position: center; width: 24px; height: 24px; display: inline-block; background-color: transparent; border: none; cursor: pointer; padding: 8px;"></span></a>');
 }
 
 function getImgLink(element) {
@@ -124,13 +124,15 @@ $('body').on('click', '.btnDownload', function(event) {
   dl.click();
 });
 
-$('body').on('mouseenter', '._22yr2._s3j6d', function() {
-  if (!$(this).find('.btnDownloadHover').length)
-    $(this).append('<div class="download-container" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, 0.3)"><a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: auto; cursor: pointer;"></a></div>');
-  $(this).find('.download-container').show();
-});
+// Explore page
+// $('body').on('mouseenter', '._22yr2._s3j6d', function() {
+//   if (!$(this).find('.btnDownloadHover').length)
+//     $(this).append('<div class="download-container" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, 0.3)"><a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: auto; cursor: pointer;"></a></div>');
+//   $(this).find('.download-container').show();
+// });
 
-$('body').on('mouseenter', '._sppa1', function() {
+// Profile page
+$('body').on('mouseenter', '._mli86', function() {
   if (!$(this).find('.btnDownloadHover').length)
     $(this).append('<a class="btnDownloadHover" style="background-image: url(' + download_white + '); width: 30px; height: 30px; background-size: contain; margin: 5px auto;"></a>');
 });
@@ -148,7 +150,7 @@ $('body').on('click', 'a', function(event) {
 });
 
 $('body').on('click', '.btnDownloadHover', function(event) {
-  var parent = $(this).closest('._8mlbc');
+  var parent = $(this).closest('._mck9w');
   var itemLink = parent.find('a').first()[0].href;
   // for multiple photos
   if (parent.find('.coreSpriteSidecarIconLarge').length) {
@@ -205,47 +207,49 @@ var config = {
 // pass in the target node, as well as the observer options
 observer.observe(target, config);
 
-$('body').on('mouseenter', '._5lote._h33fs._vbtk2', function(event) {
-  var parent = $(event.target).closest('._5lote._h33fs._vbtk2');;
+// Profile pic download
+$('body').on('mouseenter', '._4a6q9._i2o1o._gvoze', function(event) {
+  var parent = $(event.target).closest('._4a6q9._i2o1o._gvoze');;
   if (parent.find('.profileDownloadBtn').length == 0) {
     addProfileDownload(parent);
   }
   parent.find('.profileDownloadBtn').show();
 });
 
-$('body').on('mouseleave', '._5lote._h33fs._vbtk2', function(event) {
-  var parent = $(event.target).closest('._5lote._h33fs._vbtk2');
+$('body').on('mouseleave', '._4a6q9._i2o1o._gvoze', function(event) {
+  var parent = $(event.target).closest('._4a6q9._i2o1o._gvoze');
   parent.find('.profileDownloadBtn').hide();
 });
 
-$('body').on('mouseenter', '._5lote._pfo25._vbtk2', function(event) {
-  var parent = $(event.target).closest('._5lote._pfo25._vbtk2');;
+// Profile pic on explore page
+$('body').on('mouseenter', '._4a6q9._9irns._gvoze', function(event) {
+  var parent = $(event.target).closest('._4a6q9._9irns._gvoze');;
   if (parent.find('.profileDownloadBtn').length == 0) {
     addProfileDownload(parent);
   }
   parent.find('.profileDownloadBtn').show();
 });
 
-$('body').on('mouseleave', '._5lote._pfo25._vbtk2', function(event) {
-  var parent = $(event.target).closest('._5lote._pfo25._vbtk2');
+$('body').on('mouseleave', '._4a6q9._9irns._gvoze', function(event) {
+  var parent = $(event.target).closest('._4a6q9._9irns._gvoze');
   parent.find('.profileDownloadBtn').hide();
 });
 
-$('body').on('mouseenter', '._8gpiy._r43r5', function(event) {
-  var parent = $(event.target).closest('._8gpiy._r43r5');;
+$('body').on('mouseenter', '._l8yre._qdmzb', function(event) {
+  var parent = $(event.target).closest('._l8yre._qdmzb');;
   if (parent.find('.profileDownloadBtn').length == 0) {
     addProfileDownload(parent);
   }
   parent.find('.profileDownloadBtn').show();
 });
 
-$('body').on('mouseleave', '._8gpiy._r43r5', function(event) {
-  var parent = $(event.target).closest('._8gpiy._r43r5');
+$('body').on('mouseleave', '._l8yre._qdmzb', function(event) {
+  var parent = $(event.target).closest('._l8yre._qdmzb');
   parent.find('.profileDownloadBtn').hide();
 });
 
 
-$('body').on('click', 'a._5lote._h33fs._vbtk2, ._5lote._pfo25._vbtk2, ._8gpiy._r43r5', function(event) {
+$('body').on('click', 'a._4a6q9._i2o1o._gvoze, ._4a6q9._9irns._gvoze, ._l8yre._qdmzb', function(event) {
   var imgLink = $(this).find('img').attr('src');
   if (imgLink) {
     var link = document.createElement('a');
